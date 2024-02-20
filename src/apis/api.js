@@ -81,14 +81,16 @@ export const callGetProductByLikeBrandAPI = (userId) => {
   return axios.get(`${hostUrl}/product/like_brand?userId=${userId}`)
 }
 // 상품 목록 조회
-export const callGetProductAPI = (categoryId, brandId) => {
+export const callGetProductAPI = (categoryId, brandId, keyword) => {
   let url = categoryId
     ? `${hostUrl}/product?categoryId=${categoryId}`
     : `${hostUrl}/product`
   if (brandId) {
     url = categoryId ? `${url}&brandId=${brandId}` : `${url}?brandId=${brandId}`
   }
-  console.log('query', url)
+  if (keyword) {
+    url = `${hostUrl}/product?keyword=${keyword}`
+  }
   return axios.get(url)
 }
 // 상품 등록

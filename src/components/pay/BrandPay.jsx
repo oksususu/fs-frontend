@@ -3,8 +3,6 @@ import ProductCard from './ProductCard'
 import { callGetBrandByBrandIdAPI } from '../../apis/api'
 
 function BrandCart({ brandId, brandCart }) {
-  console.log(brandId, brandCart)
-
   const [brandName, setBrandName] = useState('')
 
   useEffect(() => {
@@ -19,7 +17,6 @@ function BrandCart({ brandId, brandCart }) {
         {brandName}
       </div>
       {Object.entries(brandCart).map(([productId, productCart]) => {
-        console.log(productId, productCart)
         return <ProductCard key={productId} {...productCart} />
       })}
       <div className="divider m-0"></div>

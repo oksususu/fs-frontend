@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import ProductDisplayCard from './ProductDisplayCard'
 import TabBar from '../common/TabBar'
 import { callGetCategoryByBrandIdAPI, callGetProductAPI } from '../../apis/api'
 import { CategoryMap } from '../../data/mapData'
+import ProductDisplay from '../common/ProductDisplay'
 
-function ProductDisplay({ brandId }) {
+function ProductShowCase({ brandId }) {
   const [cards, setCards] = useState([])
   const [categories, setCategories] = useState([0])
 
@@ -47,13 +47,9 @@ function ProductDisplay({ brandId }) {
         tabIndex={categoryTabIndex}
         handleTabIndex={handleCategoryTabIndex}
       ></TabBar>
-      <div className="w-full mt-5 mx-10 flex flex-wrap justify-start items-center ">
-        {cards.map((card, index) => {
-          return <ProductDisplayCard {...card} key={index} />
-        })}
-      </div>
+      <ProductDisplay cards={cards} />
     </div>
   )
 }
 
-export default ProductDisplay
+export default ProductShowCase

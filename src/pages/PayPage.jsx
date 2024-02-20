@@ -11,7 +11,6 @@ function PayPage() {
   const [orderBrandList, setOrderBrandList] =
     useRecoilState(orderBrandListState)
   const [cart, setCart] = useRecoilState(cartState)
-  console.log('orderBrandList', orderBrandList)
 
   const handleClickOrderButton = () => {
     alert('주문이 완료되었습니다! 메인페이지로 이동합니다.')

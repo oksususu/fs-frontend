@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import BrandInfo from '../components/brand/BrandInfo'
-import ProductDisplay from '../components/brand/ProductDisplay'
 import { useLocation, useParams } from 'react-router-dom'
 import { callGetBrandByBrandIdAPI } from '../apis/api'
+import ProductCategoryExplorer from '../components/brand/ProductCategoryExplorer'
 
 function BrandDetailPage() {
   const brandId = useParams()['id']
@@ -22,7 +22,7 @@ function BrandDetailPage() {
           brandImg={brandInfo.brand_img}
           description={brandInfo.description}
         />
-        <ProductDisplay brandId={brandInfo.brand_id} />
+        <ProductCategoryExplorer brandId={brandInfo.brand_id} />
       </div>
     </div>
   )
