@@ -6,6 +6,11 @@ const hostUrl = import.meta.env.VITE_HOST_URL
 export const callGetBrandLikeAPI = (userId) => {
   return axios.get(`${hostUrl}/brand/like?userId=${userId}`)
 }
+// 카테고리 브랜드 리스트 조회
+export const callGetBrandCategoryAPI = (categoryId) => {
+  return axios.get(`${hostUrl}/brand/category?categoryId=${categoryId}`)
+}
+
 // 브랜드 목록 조회
 export const callGetBrandAPI = (sellerId) => {
   return axios.get(`${hostUrl}/brand?sellerId=${sellerId}`)

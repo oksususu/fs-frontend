@@ -24,7 +24,9 @@ function ProductDetailPage() {
   function ScrollInfo({ relatedProductCards }) {
     return (
       relatedProductCards.length !== 0 && (
-        <div className="mb-5">상품을 스크롤 해보세요!</div>
+        <div className="mb-5">
+          해당 브랜드의 더 다양한 상품을 원한다면, 스크롤 해보세요!
+        </div>
       )
     )
   }

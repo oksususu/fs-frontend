@@ -4,23 +4,33 @@ import BrandPay from '../components/pay/BrandPay'
 import { useRecoilState } from 'recoil'
 import { orderBrandListState } from '../atoms/cartAtom'
 import { cartState } from '../atoms/cartAtom'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 
 function PayPage() {
   const navigate = useNavigate()
+  const location = useLocation()
+  console.log(location)
+  const [searchParams, setSearchParams] = useSearchParams()
+  console.log(searchParams.get('order'), 'hi')
   const [orderBrandList, setOrderBrandList] =
     useRecoilState(orderBrandListState)
   const [cart, setCart] = useRecoilState(cartState)
 
   const handleClickOrderButton = () => {
     alert('주문이 완료되었습니다! 메인페이지로 이동합니다.')
-    setCart({})
+
+    const newCart = { ...cart }
+    Object.entries(newCart).map(([brandId, _]) => {
+      orderBrandList.includes(String(brandId)) && delete newCart[brandId]
+    })
+    setCart(newCart)
+
     setOrderBrandList([])
     navigate('/')
   }
 
   useEffect(() => {
-    if (orderBrandList.length === 0) {
+    if (orderBrandList.length === 0 && !orderProductId) {
       alert('올바르지 않은 접근입니다. 메인페이지로 이동합니다.')
       navigate('/')
     }

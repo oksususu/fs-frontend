@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function OrderButtons({ handleOrderQuantity, handleClickCartButton }) {
+  const navigate = useNavigate()
+
   return (
     <div className="w-full justify-start items-start gap-4 inline-flex">
       <button
@@ -19,7 +22,7 @@ function OrderButtons({ handleOrderQuantity, handleClickCartButton }) {
         className="btn grow shrink basis-0 h-14 px-4 bg-indie-pink hover:bg-blue-200 rounded-[100px] justify-center items-center gap-0.5 flex"
         onClick={() => {
           alert('구매되었습니다.')
-          handleOrderQuantity(1)
+          navigate({ pathname: '/pay', search: '?sort=date&order=newest' })
         }}
       >
         <div className="text-center text-white text-l text-base font-border font-['Noto Sans KR']">

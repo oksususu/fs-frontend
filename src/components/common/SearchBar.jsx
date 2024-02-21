@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 
-function SearchBar({ handleKeyword }) {
-  const inputRef = useRef()
+function SearchBar({ handleKeyword, inputRef }) {
   const handleClickSearchButton = () => {
     if (inputRef.current.value.split(' ').join('').length === 0) {
       alert('검색어를 입력해주세요')

@@ -1,12 +1,12 @@
 import React from 'react'
-import ImgBanner from '../components/brand/ImgBanner'
+import BrandBanner from '../components/brand/BrandBanner'
 import CreatorDetail from '../components/brand/CreatorInfo'
 import ProductList from '../components/brand/ProductList'
 
 function CreatorInfoPage() {
   return (
     <div className="w-full my-[24px] px-2 flex-col justify-start items-center">
-      <ImgBanner></ImgBanner>
+      <BrandBanner></BrandBanner>
       <CreatorDetail
         creatorName="투미투유"
         links={[
