@@ -31,21 +31,23 @@
 
 ### 상품 페이지
 
-<br><video src="productpage.mp4"  width="400" controls title="Title"></video><br>
+- [동작 영상 링크](https://drive.google.com/file/d/1j5qJ2kzDVTFVf5-si8lzKqQYYz3Hgxw6/view?usp=sharing)
+  <br><img src = "product.png" width="400"><br>
 
 - 상품의 자세한 정보를 확인하고, 상품구매로 이어지는 페이지
 - 해당 브랜드의 다른 상품들을 간단하게 스크롤하기만 해도 확인가능
 
 ### 검색 페이지
 
-<br><video src="searchpage.mp4" width="400" controls title="Title"></video><br>
+- [동작 영상 링크](https://drive.google.com/file/d/1r1cew2JD6G0gQkmRZ2pIEwW4MlhtT23N/view?usp=sharing)
+  <br><img src = "search.png" width="400"><br>
 
 - 검색 쿼리에 따른 상품 검색
 
 ### 장바구니 & 주문 페이지
 
-<br><img src = "cartpage.png" width="400"><img src = "paypage.png" width="400"><br>
-<br><video src="cartpage.mp4" width="400" controls title="Title"></video><br>
+- [동작 영상 링크](https://drive.google.com/file/d/1AeUgyxMsX9Ho-TvAhfZdeZPW8ctVESqg/view?usp=sharing)
+  <br><img src = "cartpage.png" width="400"><img src = "paypage.png" width="400"><br>
 
 - 장바구니에 담은 상품의 개수를 변경하거나, 삭제가능
 - 주문할 상품을 주문한 이후에, 해당 상품은 장바구니에서 없어짐
