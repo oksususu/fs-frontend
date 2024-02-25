@@ -59,9 +59,9 @@ function ProductDetailPage() {
         <div id="0" className="carousel-item h-full">
           <ProductCard {...productCard} />
         </div>
-        {relatedProductCards.map((relatedProductCard) => {
+        {relatedProductCards.map((relatedProductCard, idx) => {
           return (
-            <div className="carousel-item h-full">
+            <div key={idx} className="carousel-item h-full">
               <ProductCard {...relatedProductCard} />
             </div>
           )
