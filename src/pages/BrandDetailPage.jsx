@@ -16,7 +16,7 @@ function BrandDetailPage() {
 
   return (
     <div>
-      <div className="w-full my-[24px] px-2">
+      <div className="h-screen w-full my-[24px] px-2">
         <BrandInfo
           brandName={brandInfo.brand_name}
           brandImg={brandInfo.brand_img}

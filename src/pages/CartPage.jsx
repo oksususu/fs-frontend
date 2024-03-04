@@ -25,7 +25,7 @@ function CartPage() {
   }, [])
 
   return Object.keys(cart).length !== 0 ? (
-    <div className="w-full my-[24px] px-2">
+    <div className="h-screen w-full my-[24px] px-2">
       {Object.entries(cart).map(([brandId, brandCart]) => {
         return (
           <BrandCart key={brandId} brandId={brandId} brandCart={brandCart} />

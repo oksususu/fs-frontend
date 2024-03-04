@@ -37,21 +37,25 @@ function PayPage() {
   }, [])
 
   return (
-    <div className="w-full my-[24px] px-2  border-solid border-[4px] border-gray-200 round rounded-xl">
-      <div className="m-4 text-center text-3xl font-bold font-['Noto Sans KR'] leading-normal">
-        주문상품
-      </div>
-      <div className="divider m-0 h-[1px] mb-2"></div>
-      {Object.entries(cart)
-        .filter(([brandId, _]) => orderBrandList.includes(brandId))
-        .map(([brandId, brandCart]) => {
-          return <BrandPay brandId={brandId} brandCart={brandCart} />
-        })}
-      <div className="w-full my-3 text-center ">
-        <div className="m-3">주문내용을 확인후, 주문하기 버튼을 눌러주세요</div>
-        <button onClick={handleClickOrderButton} className="w-full btn">
-          주문하기
-        </button>
+    <div className="w-full my-[24px] px-2 h-screen">
+      <div className="border-solid border-[4px] border-gray-200 round rounded-xl">
+        <div className="m-4 text-center text-3xl font-bold font-['Noto Sans KR'] leading-normal">
+          주문상품
+        </div>
+        <div className="divider m-0 h-[1px] mb-2"></div>
+        {Object.entries(cart)
+          .filter(([brandId, _]) => orderBrandList.includes(brandId))
+          .map(([brandId, brandCart]) => {
+            return <BrandPay brandId={brandId} brandCart={brandCart} />
+          })}
+        <div className="my-3 text-center ">
+          <div className="m-3">
+            주문내용을 확인후, 주문하기 버튼을 눌러주세요
+          </div>
+          <button onClick={handleClickOrderButton} className="w-80 btn mx-2">
+            주문하기
+          </button>
+        </div>
       </div>
     </div>
   )

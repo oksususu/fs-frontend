@@ -154,3 +154,70 @@ export const callGetCategoryAPI = () => {
 export const callGetCategoryByBrandIdAPI = (brandId) => {
   return axios.get(`${hostUrl}/category/${brandId}`)
 }
+
+/* account 관련 api */
+// 로그인
+export const callPostAccountLoginAPI = (email, password) => {
+  return axios.post(`${hostUrl}/account/login`, { email, password })
+}
+
+// 로그인된 유저정보 조회
+export const callGetAccountInfoAPI = (token) => {
+  return axios.get(`${hostUrl}/account`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+}
+
+// 회원가입
+export const callPostAccountAPI = (
+  userName,
+  email,
+  password,
+  address,
+  phoneNumber
+) => {
+  return axios.post(`${hostUrl}/account`, {
+    userName,
+    email,
+    password,
+    address,
+    phoneNumber,
+  })
+}
+
+// 유저 탈퇴
+export const callDeleteAccountAPI = (token) => {
+  return axios.delete(`${hostUrl}/account`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+}
+
+// 유저 정보 수정
+export const callPutAccountAPI = (
+  userName,
+  email,
+  password,
+  address,
+  phoneNumber,
+  token
+) => {
+  return axios.put(
+    `${hostUrl}/account`,
+    {
+      userName,
+      email,
+      password,
+      address,
+      phoneNumber,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  )
+}
