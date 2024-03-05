@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import BrandPay from '../components/pay/BrandPay'
 
 import { useRecoilState } from 'recoil'
@@ -8,13 +8,10 @@ import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 
 function PayPage() {
   const navigate = useNavigate()
-  const location = useLocation()
-  console.log(location)
-  const [searchParams, setSearchParams] = useSearchParams()
-  console.log(searchParams.get('order'), 'hi')
   const [orderBrandList, setOrderBrandList] =
     useRecoilState(orderBrandListState)
   const [cart, setCart] = useRecoilState(cartState)
+  const [totalPrice, setTotalPrice] = useState(0)
 
   const handleClickOrderButton = () => {
     alert('주문이 완료되었습니다! 메인페이지로 이동합니다.')
@@ -36,6 +33,20 @@ function PayPage() {
     }
   }, [])
 
+  useEffect(() => {
+    let price = 0
+    Object.entries(cart)
+      .filter(([brandId, _]) => orderBrandList.includes(brandId))
+      .forEach(([brandId, brandCart]) => {
+        const brandPrice = Object.entries(brandCart).reduce(
+          (prev, [_, { price, orderQuantity }]) => prev + price * orderQuantity,
+          0
+        )
+        price += brandPrice
+      })
+    setTotalPrice(price)
+  }, [cart])
+
   return (
     <div className="w-full my-[24px] px-2">
       <div className="border-solid border-[4px] border-gray-200 round rounded-xl">
@@ -48,6 +59,10 @@ function PayPage() {
           .map(([brandId, brandCart]) => {
             return <BrandPay brandId={brandId} brandCart={brandCart} />
           })}
+        <div className="my-4 mx-8 flex justify-between text-xl text-pink-500 text-bold font-bold font-['Noto Sans KR']">
+          <div className="">총 주문 금액</div>
+          <div>₩ {totalPrice.toLocaleString('ko-KR')}</div>
+        </div>
         <div className="my-3 text-center ">
           <div className="m-3">
             주문내용을 확인후, 주문하기 버튼을 눌러주세요

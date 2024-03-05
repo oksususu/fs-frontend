@@ -22,7 +22,7 @@ function ProductCard({
             showCategory={false}
           />
           <div className="flex items-center gap-2">
-            <div className="badge badge-outline border-solid">옵션</div>
+            <div className="badge badge-outline border-solid">구매개수</div>
             <div>{`${orderQuantity}개`}</div>
           </div>
         </div>

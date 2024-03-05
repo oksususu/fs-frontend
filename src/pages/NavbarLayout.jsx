@@ -12,6 +12,7 @@ const NavbarLayout = () => {
   const handleLogout = () => {
     setIsLoggedIn(false)
     localStorage.removeItem('token')
+    alert('로그아웃되었습니다.')
   }
 
   return (

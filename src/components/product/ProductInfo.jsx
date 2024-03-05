@@ -1,9 +1,5 @@
 import React from 'react'
 import { CategoryMap } from '../../data/mapData'
-import DeleteButton from '../common/DeleteButton'
-
-import { useSetRecoilState } from 'recoil'
-import { cartState } from '../../atoms/cartAtom'
 
 function ProductInfo({ productName, price, categoryId, showCategory = true }) {
   return (
