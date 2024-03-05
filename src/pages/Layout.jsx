@@ -7,7 +7,10 @@ const Layout = () => {
   return (
     <>
       <NavbarLayout />
-      <div className="max-w-[860px] mx-auto px-3" id="content-container">
+      <div
+        className="max-w-[860px] mx-auto px-3 min-h-screen"
+        id="content-container"
+      >
         <Outlet />
       </div>
       <FooterLayout />

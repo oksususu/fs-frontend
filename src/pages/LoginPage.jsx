@@ -36,7 +36,7 @@ function LoginPage() {
   }
 
   return (
-    <div className="h-screen w-full my-[120px] px-24 flex-col my justify-center items-center ">
+    <div className="w-full my-[120px] px-24 flex-col my justify-center items-center ">
       <div className="m-2 mb-10 text-center">
         <h2>Login</h2>
       </div>

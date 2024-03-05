@@ -37,7 +37,7 @@ function PayPage() {
   }, [])
 
   return (
-    <div className="w-full my-[24px] px-2 h-screen">
+    <div className="w-full my-[24px] px-2">
       <div className="border-solid border-[4px] border-gray-200 round rounded-xl">
         <div className="m-4 text-center text-3xl font-bold font-['Noto Sans KR'] leading-normal">
           주문상품

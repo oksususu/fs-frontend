@@ -59,7 +59,7 @@ function SignupPage() {
   }
 
   return (
-    <div className="w-full h-screen my-[120px] px-24 flex-col justify-center items-center ">
+    <div className="w-full my-[120px] px-24 flex-col justify-center items-center ">
       <div className="m-2 mb-10 text-center">
         <h2>Sign Up</h2>
       </div>

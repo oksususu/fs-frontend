@@ -34,7 +34,7 @@ function SearchPage() {
   }
 
   return (
-    <div className="w-full my-[24px] px-2 h-screen">
+    <div className="w-full my-[24px] px-2">
       <SearchBar handleKeyword={handleKeyword} inputRef={inputRef} />
       <div className="my-4 flex gap-2 items-center">
         <div>추천 검색어</div>
