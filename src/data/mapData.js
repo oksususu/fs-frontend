@@ -18,3 +18,10 @@ export const CategoryMap = new Map([
   ['16', '뷰티'],
   ['17', '남성 의류'],
 ])
+
+export const OrderStatusMap = new Map([
+  [-1, '주문 취소'],
+  [0, '상품 준비중'],
+  [1, '상품 배달중'],
+  [2, '상품 배달 완료'],
+])

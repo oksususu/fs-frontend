@@ -16,6 +16,7 @@ import PayPage from './pages/PayPage'
 import ErrorPage from './pages/ErrorPage'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
+import OrderListPage from './pages/OrderListPage'
 import { useEffect } from 'react'
 import { callGetAccountInfoAPI } from './apis/api'
 
@@ -52,7 +53,8 @@ function App() {
           <Route path="cart" element={<CartPage />} />
           <Route path="pay" element={<PayPage />} />
           <Route path="login" element={<LoginPage />} />
-          <Route path="signup" element={<SignupPage />}></Route>
+          <Route path="signup" element={<SignupPage />} />
+          <Route path="orderlist" element={<OrderListPage />} />
         </Route>
         {/* <Route path="admin" element={<AdminPage />}>
           <Route index element={<AdminLayout />} />

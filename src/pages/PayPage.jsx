@@ -5,6 +5,7 @@ import { useRecoilState } from 'recoil'
 import { orderBrandListState } from '../atoms/cartAtom'
 import { cartState } from '../atoms/cartAtom'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
+import { callPostOrderAPI } from '../apis/api'
 
 function PayPage() {
   const navigate = useNavigate()
@@ -12,22 +13,31 @@ function PayPage() {
     useRecoilState(orderBrandListState)
   const [cart, setCart] = useRecoilState(cartState)
   const [totalPrice, setTotalPrice] = useState(0)
+  const token = localStorage.getItem('token')
 
   const handleClickOrderButton = () => {
     alert('주문이 완료되었습니다! 메인페이지로 이동합니다.')
 
     const newCart = { ...cart }
+    const orderItems = []
     Object.entries(newCart).map(([brandId, _]) => {
+      Object.entries(newCart[brandId]).forEach(
+        ([productId, { orderQuantity, price }]) => {
+          orderItems.push({ productId, quantity: orderQuantity, price })
+        }
+      )
       orderBrandList.includes(String(brandId)) && delete newCart[brandId]
     })
-    setCart(newCart)
+    callPostOrderAPI(totalPrice, orderItems, token).then((res) => {
+      setCart(newCart)
 
-    setOrderBrandList([])
-    navigate('/')
+      setOrderBrandList([])
+      navigate('/')
+    })
   }
 
   useEffect(() => {
-    if (orderBrandList.length === 0 && !orderProductId) {
+    if (orderBrandList.length === 0) {
       alert('올바르지 않은 접근입니다. 메인페이지로 이동합니다.')
       navigate('/')
     }
@@ -57,7 +67,9 @@ function PayPage() {
         {Object.entries(cart)
           .filter(([brandId, _]) => orderBrandList.includes(brandId))
           .map(([brandId, brandCart]) => {
-            return <BrandPay brandId={brandId} brandCart={brandCart} />
+            return (
+              <BrandPay brandId={brandId} brandCart={brandCart} key={brandId} />
+            )
           })}
         <div className="my-4 mx-8 flex justify-between text-xl text-pink-500 text-bold font-bold font-['Noto Sans KR']">
           <div className="">총 주문 금액</div>

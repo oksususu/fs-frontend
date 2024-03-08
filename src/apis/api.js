@@ -221,3 +221,38 @@ export const callPutAccountAPI = (
     }
   )
 }
+
+/* 주문 관련 api */
+// 주문 조회
+export const callGetOrderAPI = (token) => {
+  return axios.get(`${hostUrl}/order`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+}
+
+// 주문 생성
+export const callPostOrderAPI = (totalPrice, orderItems, token) => {
+  return axios.post(
+    `${hostUrl}/order`,
+    {
+      totalPrice,
+      orderItems,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  )
+}
+
+// 주문 취소
+export const callPutOrderAPI = (orderId, token) => {
+  return axios.put(`${hostUrl}/order/${orderId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+}
